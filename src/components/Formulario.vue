@@ -89,7 +89,7 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Telefone:</label>
                         <div class="col">
-                            <input type="tel" class="form-control" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}">
+                            <input type="text" class="form-control"  v-model.lazy="form.telefone" v-maska="'(##) #####-####'">
                             <small class="text-muted">Formato: 11 97777-5555</small>
                         </div>
                     </div>
@@ -164,64 +164,64 @@
                 <span class="fs-4">ESTADO DO OBJETO</span>
                 <hr>
                 <div class="mb-5 row">
-                    <spam>{{ form }}</spam>
+                    <span>{{ form }}</span>
                 </div>
 
                 <span class="fs-4">SAÍDA DE DADOS</span>
                 <hr>
                 <div class="mb-3 row">
-                    <spam>Nome: {{ form.nome }}</spam>
+                    <span>Nome: {{ form.nome }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>E-mail: {{ form.email }}</spam>
+                    <span>E-mail: {{ form.email }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Senha: {{ form.senha }}</spam>
+                    <span>Senha: {{ form.senha }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Idade: {{ form.idade }}</spam>
+                    <span>Idade: {{ form.idade }}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Gênero: {{form.genero}}</spam>
+                    <span>Gênero: {{form.genero}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Licença: {{form.licenca}}</spam>
+                    <span>Licença: {{form.licenca}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam class="m-2">Interesses:</spam>
+                    <span class="m-2">Interesses:</span>
                     <ul>
                         <li v-for="(lista1, index) in form.interesses" :key="index">{{lista1}}</li>
                     </ul>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Telefone:</spam>
+                    <span>Telefone: {{form.telefone}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Data:</spam>
+                    <span>Data:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Data/hora local:</spam>
+                    <span>Data/hora local:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Mês:</spam>
+                    <span>Mês:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Semana:</spam>
+                    <span>Semana:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Hora:</spam>
+                    <span>Hora:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Cor:</spam>
+                    <span>Cor:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Valor limite:</spam>
+                    <span>Valor limite:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Escondido:</spam>
+                    <span>Escondido:</span>
                 </div>
                 <div class="mb-3 row">
-                    <spam>Upload:</spam>
+                    <span>Upload:</span>
                 </div>
             </div>
         </div>
@@ -240,8 +240,9 @@ export default {
             senha: '',
             idade: '',
             licenca: 'NÃO',
-            interesses:['VueJS','Angular'],
-            genero:''
+            interesses:['VueJS','JavaScript'],
+            genero:'Masculino',
+            telefone:''
         }
 
     }),
