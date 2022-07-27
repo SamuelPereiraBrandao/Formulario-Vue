@@ -1,7 +1,7 @@
 <template>
-    <div class="container mb-5">
+    <div class="container mb-5 rounded">
         <div class="row">
-            <div class="col-6 bg-light rounded">
+            <div class="col-6 bg-light " >
                 <span class="fs-4">ENTRADA DE DADOS</span>
                 <hr>
                 <form>
@@ -185,13 +185,13 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Cor:</label>
                         <div class="col">
-                            <input type="color" class="form-color">
+                            <input type="color" class="form-color" v-model="form.cor">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-3 col-form-label">Valor limite:</label>
+                        <label class="col-3 col-form-label">Valor limite: {{form.alcance}}</label>
                         <div class="col">
-                            <input type="range" class="form-range" min="0" max="100" step="1">
+                            <input type="range" class="form-range" min="1" max="50" step="5" v-model="form.alcance">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -219,7 +219,7 @@
             </div>
 
 
-            <div class="col-6 text-white bg-secondary rounded">
+            <div class="col-6 text-white bg-secondary rounded " :style="'background-color:'+form.cor+'!important'">
                 <span class="fs-4">ESTADO DO OBJETO</span>
                 <hr>
                 <div class="mb-5 row">
@@ -278,10 +278,20 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <span>Data: {{form.data}} | {{moment(form.data).format('DD/MM/YYYY')}}</span>
+                    <span>Data: {{form.data}} | {{$moment(form.data).format('DD/MM/YYYY')}}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Data/hora local:{{form.dataHoraLocal}}</span>
+                    <ul>
+                        <li>{{$moment(form.dataHoraLocal).format('dddd')}}</li>
+                        <li>add 10 dias: {{$moment(form.dataHoraLocal).add(10,'days').format('LL') }}</li>
+                        <li>add 10 meses: {{$moment(form.dataHoraLocal).add(10,'months').format('LL')}}</li>
+                        <li>add 10 anos: {{$moment(form.dataHoraLocal).add(10,'years').format('LL')}}</li>
+                        <li>remove 10 dias: {{$moment(form.dataHoraLocal).subtract(10,'days').format('LL')}}</li>
+                        <li>remove 10 meses: {{$moment(form.dataHoraLocal).subtract(10,'months').format('LL')}}</li>
+                        <li>remove 10 anos: {{$moment(form.dataHoraLocal).subtract(10,'years').format('LL')}}</li>
+                        <li>Data completa: {{$moment(form.dataHoraLocal).format('LLLL')}}</li>
+                    </ul>
                 </div>
                 <div class="mb-3 row">
                     <span>Mês: {{form.mes}}</span>
@@ -293,10 +303,10 @@
                     <span>Hora: {{form.hora}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Cor:</span>
+                    <span>Cor: {{form.cor}}</span>
                 </div>
                 <div class="mb-3 row">
-                    <span>Valor limite:</span>
+                    <span>Valor limite: {{form.alcance}}</span>
                 </div>
                 <div class="mb-3 row">
                     <span>Escondido:</span>
@@ -312,12 +322,11 @@
 </template>
 
 <script>
-import moment from 'moment'
 
 export default {
     name: 'FormularioSite',
     data: () => ({
-        moment: {},
+        
         form: {
             nome: '',
             email: '',
@@ -339,12 +348,14 @@ export default {
             mes:'',
             semana:'', 
             hora:'',
+            cor:'',
+            alcance:5,
+
         },
     }), 
-     created(){
-            this.moment = moment
-        }
+ 
 }
 </script>
 <style scoped>
+
 </style>
