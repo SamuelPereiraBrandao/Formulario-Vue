@@ -1,7 +1,7 @@
 <template>
     <div class="container mb-5 rounded">
         <div class="row">
-            <div class="col-6 bg-light ">
+            <div class="col-6 bg-cor  rounded">
                 <span class="fs-4">ENTRADA DE DADOS</span>
                 <hr>
                 <!-- <form @submit.prevent="enviar($event)" action="">-->
@@ -448,4 +448,7 @@ export default {
 }
 </script>
 <style scoped>
+.bg-cor{
+    background-color:rgba(0, 0, 0, 0.286);
+}
 </style>
