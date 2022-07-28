@@ -38,7 +38,7 @@ export default {
             }
             //enviar um evento personalizado para o componente pai
            // this.$emit('avaliar', this.avaliacao)
-           this.emit('update:')
+           this.$emit('update:avaliar', this.avaliacao)
         }
     }
 }
@@ -52,6 +52,6 @@ export default {
     margin-right: 1px;
 }
 .preenchida {
-    color: #fc0;
+    color: rgb(215, 178, 27);
 }
 </style>

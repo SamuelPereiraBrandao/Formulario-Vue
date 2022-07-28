@@ -229,7 +229,8 @@
                     <div class="mb-3 row">
                         <label class="col-3 col-form-label">Escondido:</label>
                         <div class="col">
-                            <input-estrelas :numero-estrelas="5" @avaliar="form.avaliacao = $event"></input-estrelas>
+                         <!--   <input-estrelas :numero-estrelas="5" @avaliar="form.avaliacao = $event"></input-estrelas>-->
+                            <input-estrelas :numero-estrelas="5" v-model:avaliar="form.avaliacao"></input-estrelas>
                         </div>
                     </div>
 
@@ -358,11 +359,17 @@
                 </div>
                 <div class="mb-3 row">
                     <span>cursos:</span>
-                    {{ form.curso }}
+                    <div>
+                        {{ form.curso }}
+                    </div>
+                    
                 </div>
                 <div class="mb-3 row">
                     <span>Avaliação:</span>
-                    {{ form.avaliacao }}
+                    <div>
+                        {{ form.avaliacao }}
+                    </div>
+                    
                 </div>
 
             </div>
@@ -394,7 +401,7 @@ export default {
             senha: "",
             idade: "",
             licenca: "NÃO",
-            interesses: ["VueJS", "JavaScript"],
+            interesses:'',
             genero: "Masculino",
             telefone: "",
             cep: "",
